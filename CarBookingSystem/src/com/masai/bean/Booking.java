@@ -5,7 +5,7 @@ private int cId;
 	
 	private int cusId;
 	
-	private int carMod;
+	private int carMo;
 	
 	private int seatFrom;
 	
@@ -13,11 +13,11 @@ private int cId;
 	
 	private boolean status;
 
-	public Booking(int cId, int cusId, int carMod, int seatFrom, int seatTo, boolean status) {
+	public Booking(int cId, int cusId, int carMo, int seatFrom, int seatTo, boolean status) {
 		super();
 		this.cId = cId;
 		this.cusId = cusId;
-		this.carMod = carMod;
+		this.carMo = carMo;
 		this.seatFrom = seatFrom;
 		this.seatTo = seatTo;
 		this.status = status;
@@ -39,12 +39,12 @@ private int cId;
 		this.cusId = cusId;
 	}
 
-	public int getCarMod() {
-		return carMod;
+	public int getCarMo() {
+		return carMo;
 	}
 
 	public void setCarMod(int carMod) {
-		this.carMod = carMod;
+		this.carMo = carMod;
 	}
 
 	public int getSeatFrom() {
@@ -73,7 +73,7 @@ private int cId;
 
 	@Override
 	public String toString() {
-		return "Booking [cId=" + cId + ", cusId=" + cusId + ", carMod=" + carMod + ", seatFrom=" + seatFrom
+		return "Booking [cId=" + cId + ", cusId=" + cusId + ", carMo=" + carMo + ", seatFrom=" + seatFrom
 				+ ", seatTo=" + seatTo + ", status=" + status + "]";
 	}
 	

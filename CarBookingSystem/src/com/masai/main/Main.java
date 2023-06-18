@@ -5,6 +5,15 @@ import java.util.Scanner;
 
 import com.masai.bean.Customer;
 import com.masai.color.ConsoleColors;
+import com.masai.usecases.AddCar2usecase;
+import com.masai.usecases.AdminLoginusecase;
+import com.masai.usecases.BookBookingcNameusecase;
+import com.masai.usecases.CancelBookingcNameusecase;
+import com.masai.usecases.CusLoginusecase;
+import com.masai.usecases.CusSignUp2usecase;
+import com.masai.usecases.UpdateStatususecase;
+import com.masai.usecases.ViewAllBookingsusecase;
+import com.masai.usecases.ViewBookingusecase;
 
 public class Main {
 	static void AdminOrCustomer() {
@@ -90,7 +99,7 @@ public class Main {
 		
 			switch(choice) {
 				case 1 : {
-					AddCar2usecase.AddBus();
+					AddCar2usecase.AddCar();
 					adminMethods();
 				}
 				break;
@@ -100,7 +109,7 @@ public class Main {
 				}
 				break;
 				case 3 : {
-					ViewAllBookingsusecase.viewAllTicket();
+					ViewAllBookingsusecase.viewAllBooking();
 					adminMethods();
 				}
 				break;
@@ -206,17 +215,17 @@ public class Main {
 	static void customerChoice(int choice, Customer customer) {
 		switch(choice) {
 		case 1 : {
-			BookBookingcNameusecase.BookTicketbName(customer);
+			BookBookingcNameusecase.BookBookingcName(customer);
 			customerMethods(customer);
 		}
 		break;
 		case 2 : {
-			CancelBookingcNameusecase.cancelTicket(customer);
+			CancelBookingcNameusecase.cancelBooking(customer);
 			customerMethods(customer);
 		}
 		break;
 		case 3 : {
-			ViewBookingusecase.viewTicket(customer);
+			ViewBookingusecase.viewBooking(customer);
 			customerMethods(customer);
 		}
 		break;

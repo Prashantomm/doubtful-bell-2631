@@ -6,4 +6,5 @@
  *
  */
 module CarBookingSystem {
+	requires java.sql;
 }
