@@ -4,16 +4,11 @@
  
 
 
-<!-- ![admin](https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/deb30969-87e6-4463-b533-bec918d97c53)
-![customer)](https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/22368990-9629-465c-a434-1d0991c11d0c)
-![backend](https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/a4cad5be-ba45-473e-9f8f-20b00d0cdafa) -->
-
-
 # Car Booking System
 
 > A car booking system is an java application designed to provide customers with a personalized easy-to-utilize user experience for booking car online. It stores customers' personal data records, scheduled car type and other information.
 
-> car booking system is a console based application.
+> Car booking system is a console based application.
 
 > Build Car booking system application during the construct week at [Masai School](https://masaischool.com/). Completed the project within five days.
 
@@ -51,7 +46,7 @@
 ![er diagram](https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/f315f134-021e-4a82-8ff7-28bfe9f2134e)
 
 ## *Admin Login* 
-Admin can login by using username (Admin) and password (1234)
+Admin can login by using username (Admin) and password (admin)
 </br>
 <img src="https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/deb30969-87e6-4463-b533-bec918d97c53" width="400" height="400">
 
