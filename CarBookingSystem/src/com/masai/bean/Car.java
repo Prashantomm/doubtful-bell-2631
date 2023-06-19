@@ -6,20 +6,26 @@ public class Car {
 	 private String cName;
 	  
 	 private String cType;
-	  
-	 private int totalSeats;
+	 private String tillDate;
 	 
-	 private int availSeats;
+	 private String availiableTo;
+	  
+	 private int totalCars;
+	 
+	 private int availCars;
 	 
 	 private int fare;
 
-	public Car(int carMo, String cName, String cType, int totalSeats, int availSeats, int fare) {
+	public Car(int carMo, String cName, String cType, String tillDate, String availiableTo, int totalCars,
+			int availCars, int fare) {
 		super();
 		this.carMo = carMo;
 		this.cName = cName;
 		this.cType = cType;
-		this.totalSeats = totalSeats;
-		this.availSeats = availSeats;
+		this.tillDate = tillDate;
+		this.availiableTo = availiableTo;
+		this.totalCars = totalCars;
+		this.availCars = availCars;
 		this.fare = fare;
 	}
 
@@ -47,20 +53,36 @@ public class Car {
 		this.cType = cType;
 	}
 
-	public int getTotalSeats() {
-		return totalSeats;
+	public String getTillDate() {
+		return tillDate;
 	}
 
-	public void setTotalSeats(int totalSeats) {
-		this.totalSeats = totalSeats;
+	public void setTillDate(String tillDate) {
+		this.tillDate = tillDate;
 	}
 
-	public int getAvailSeats() {
-		return availSeats;
+	public String getAvailiableTo() {
+		return availiableTo;
 	}
 
-	public void setAvailSeats(int availSeats) {
-		this.availSeats = availSeats;
+	public void setAvailiableTo(String availiableTo) {
+		this.availiableTo = availiableTo;
+	}
+
+	public int getTotalCars() {
+		return totalCars;
+	}
+
+	public void setTotalCars(int totalCars) {
+		this.totalCars = totalCars;
+	}
+
+	public int getAvailCars() {
+		return availCars;
+	}
+
+	public void setAvailCars(int availCars) {
+		this.availCars = availCars;
 	}
 
 	public int getFare() {
@@ -73,9 +95,11 @@ public class Car {
 
 	@Override
 	public String toString() {
-		return "Car [carMo=" + carMo + ", cName=" + cName + ", cType=" + cType + ", totalSeats=" + totalSeats
-				+ ", availSeats=" + availSeats + ", fare=" + fare + "]";
+		return "Car [carMo=" + carMo + ", cName=" + cName + ", cType=" + cType + ", tillDate=" + tillDate
+				+ ", availiableTo=" + availiableTo + ", totalCars=" + totalCars + ", availCars=" + availCars + ", fare="
+				+ fare + "]";
 	}
-	 
+
+	
 
 }

@@ -16,29 +16,34 @@ public class AddCar2usecase {
 		try {
 			
 			System.out.println(ConsoleColors.ORANGE + "Enter Car model" + ConsoleColors.RESET);
-			int busNo = sc.nextInt();
+			int carMo = sc.nextInt();
 			
 			System.out.println(ConsoleColors.ORANGE + "Enter car name" + ConsoleColors.RESET);
-			String bName = sc.next();
+			String cName = sc.next();
 			
 			
 			
-			System.out.println(ConsoleColors.ORANGE + "Enter Car Type - AC / NonAC" + ConsoleColors.RESET);
-			String bType = sc.next();
+			System.out.println(ConsoleColors.ORANGE + "Enter Car Type - SUV / Sedan / Minivan" + ConsoleColors.RESET);
+			String cType = sc.next();
 			
 			sc.nextLine();
+			System.out.println(ConsoleColors.ORANGE + "Enter Car aviliability date and time in format (YYYY-MM-DD HH:MI:SS)" + ConsoleColors.RESET);
+			String availiableTo = sc.nextLine();
+			
+			System.out.println(ConsoleColors.ORANGE + "Enter Car ToTill date and time in format (YYYY-MM-DD HH:MI:SS)" + ConsoleColors.RESET);
+			String tillDate = sc.nextLine();
 			
 			
-			System.out.println(ConsoleColors.ORANGE + "Enter Total Seats" + ConsoleColors.RESET);
-			int totalSeats = sc.nextInt();
+			System.out.println(ConsoleColors.ORANGE + "Enter Total Cars" + ConsoleColors.RESET);
+			int totalCars = sc.nextInt();
 			
-			System.out.println(ConsoleColors.ORANGE + "Enter Available Seats" + ConsoleColors.RESET);
-			int availSeats = sc.nextInt();
+			System.out.println(ConsoleColors.ORANGE + "Enter Available Cars" + ConsoleColors.RESET);
+			int availCars = sc.nextInt();
 			
 			System.out.println(ConsoleColors.ORANGE + "Enter fare" + ConsoleColors.RESET);
 			int fare = sc.nextInt();
 			
-			Car car = new Car(carMo, cName,  cType,  totalSeats, availSeats, fare);
+			Car car = new Car(carMo, cName,  cType, availiableTo,tillDate, totalCars, availCars, fare);
 			
 			AdminDao dao = new AdminDaoImpl();
 			

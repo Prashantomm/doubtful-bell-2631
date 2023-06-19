@@ -113,7 +113,7 @@ public class CustomerDaoImpl implements CustomerDao {
 	@Override
 	public String bookBooking(String cName, int cusId, int no) throws CarException {
 	
-		String message = "Ticket Booking fail";
+		String message = "Booking fail";
 		
 		try (Connection conn = DButil.provideConnection()){
 			
@@ -124,10 +124,10 @@ public class CustomerDaoImpl implements CustomerDao {
 			
 			if (rs.next()) {
 				
-				int busNo = rs.getInt("busNo");
-				int totalSeats = rs.getInt("totalSeats");
-				int availSeats = rs.getInt("availSeats");
-				Date departure = rs.getDate("departure");
+				int carMo = rs.getInt("carMo");
+				int totalCars = rs.getInt("totalCars");
+				int availCars = rs.getInt("availCars");
+				Date departure = rs.getDate("availiableTo");
 				int fare = rs.getInt("fare");
 				
 				PreparedStatement ps1 = conn.prepareStatement("select datediff(?,current_date()) as date");
@@ -140,41 +140,41 @@ public class CustomerDaoImpl implements CustomerDao {
 				}
 				
 				if (days <= 0) {
-					throw new CarException("Booking is not available for this date");
+				throw new CarException("Booking is not available for this date");
 				}
-				else if (availSeats >= no) {
-					int seatFrom = totalSeats - availSeats + 1;
-					int seatTo = seatFrom + no -1;
+				else if (availCars >= no) {
+					int carFrom = totalCars - availCars + 1;
+					int carTo = carFrom + no -1;
 					fare = fare * no;
 					
-					PreparedStatement ps2 = conn.prepareStatement("insert into booking(cusId, busNo, seatFrom, seatTo) values (?, ?, ?, ?)");
+					PreparedStatement ps2 = conn.prepareStatement("insert into booking(cusId, carMo,carFrom,carTo) values (?, ?,?,?)");
 					ps2.setInt(1, cusId);
-					ps2.setInt(2, busNo);
-					ps2.setInt(3, seatFrom);
-					ps2.setInt(4, seatTo);
+					ps2.setInt(2, carMo);
+					ps2.setInt(3, carFrom);
+					ps2.setInt(4, carTo);
 					
 					int x = ps2.executeUpdate();
 
 					if (x > 0) {
 						
-						PreparedStatement ps3 = conn.prepareStatement("update car set availseats = ? where carMo = ?");
-						availSeats = availSeats - no;
-						ps3.setInt(1, availSeats);
-						ps3.setInt(2, busNo);
+						PreparedStatement ps3 = conn.prepareStatement("update car set availcars = ? where carMo = ?");
+						availCars = availCars - no;
+						ps3.setInt(1, availCars);
+						ps3.setInt(2, carMo);
 						int y = ps3.executeUpdate();
 						
-						if (y <= 0) throw new CarException("Available Seat is not updated");
+						if (y <= 0) throw new CarException("Available Car is not updated");
 						
 						
 						System.out.println(ConsoleColors.ROSY_PINK + "--------------------------------------------" + "\n"
 																   + "Customer Id is : " + cusId + "\n"
-																   + "car Model is : " + busNo + "\n"
-																   + "Seat No is from : " + seatFrom + " to " + seatTo + "\n"
+																   + "car Model is : " + carMo + "\n"
+																   + "Car No is from : " + carFrom + " to " + carTo + "\n"
 																   + "Bus fare is : " + fare + "\n"
 																   + "Booking yet to be confirm by Adminstrator" + "\n" 
 																   + "---------------------------------------------" + ConsoleColors.RESET);
 						
-						 message = "Ticket Booked Successfully";
+						 message = "Booked Successfully";
 					}
 				
 				}
@@ -193,20 +193,20 @@ public class CustomerDaoImpl implements CustomerDao {
 	}
 
 	@Override
-	public String cancelBookig(String cName, int cusId) throws CarException {
-		String message = "Ticket cancellation failed";
+	public String cancelBooking(String cName, int cusId) throws CarException {
+		String message = "Booking cancellation failed";
 		
 		try (Connection conn = DButil.provideConnection()){
 				
-				PreparedStatement ps = conn.prepareStatement("select * from bus where bName = ?");
+				PreparedStatement ps = conn.prepareStatement("select * from car where cName = ?");
 				ps.setString(1, cName);
 				
 				ResultSet rs = ps.executeQuery();
 				
 				if (rs.next()) {
 					
-					int busNo = rs.getInt("busNo");
-					int availSeats = rs.getInt("availSeats");
+					int carMo = rs.getInt("carMo");
+					int availCars = rs.getInt("availCars");
 					
 					PreparedStatement ps1 = conn.prepareStatement("select * from booking where carMo = ? and cusId = ?");
 					ps1.setInt(1, carMo);
@@ -218,9 +218,9 @@ public class CustomerDaoImpl implements CustomerDao {
 					
 					while (rs1.next()) {
 						flag = true;
-						int seatFrom = rs1.getInt("seatFrom");
-						int seatTo = rs1.getInt("seatTo");
-						count += seatTo - seatFrom + 1;
+						int carFrom = rs1.getInt("carFrom");
+						int carTo = rs1.getInt("carTo");
+						count += carTo - carFrom + 1;
 					}
 					
 				    if (flag) {
@@ -232,13 +232,13 @@ public class CustomerDaoImpl implements CustomerDao {
 						int x = ps2.executeUpdate();
 						if (x > 0) {
 							
-							PreparedStatement ps3 = conn.prepareStatement("update car set availseats = ? where busNo = ?");
-							availSeats = availSeats + count;
-							ps3.setInt(1, availSeats);
-							ps3.setInt(2, busNo);
+							PreparedStatement ps3 = conn.prepareStatement("update car set availCars = ? where carMo = ?");
+							availCars = availCars + count;
+							ps3.setInt(1, availCars);
+							ps3.setInt(2, carMo);
 							int y = ps3.executeUpdate();
 							
-							if (y <= 0) throw new CarException("Available Seat is not updated");
+							if (y <= 0) throw new CarException("Available Car is not updated");
 							
 							 message = "Booking cancelled Successfully";
 						}
@@ -275,7 +275,7 @@ public class CustomerDaoImpl implements CustomerDao {
 				System.out.println(ConsoleColors.ROSY_PINK + "---------------------------------------------" + ConsoleColors.RESET);
 				System.out.println(ConsoleColors.ROSY_PINK + "Car Id : " + rs1.getInt("cId") + ConsoleColors.RESET);
 				System.out.println(ConsoleColors.ROSY_PINK + "Car Model : " + rs1.getInt("carMo") + ConsoleColors.RESET);
-				System.out.println(ConsoleColors.ROSY_PINK + "Total Booking : " + (rs1.getByte("seatTo") - rs1.getInt("seatFrom") + 1) + ConsoleColors.RESET);
+			System.out.println(ConsoleColors.ROSY_PINK + "Total Booking : " + (rs1.getByte("carTo") - rs1.getInt("carFrom") + 1) + ConsoleColors.RESET);
 				if (rs1.getBoolean("status")) System.out.println(ConsoleColors.ROSY_PINK + "Status : Booked"  + ConsoleColors.RESET);
 				else System.out.println(ConsoleColors.ROSY_PINK + "Status : Pending" + ConsoleColors.RESET);
 				
@@ -290,11 +290,10 @@ public class CustomerDaoImpl implements CustomerDao {
 		
 	}
 
-	@Override
-	public String cancelBooking(String cName, int cusId) throws CarException {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
+
+
+	
 
 	
 }

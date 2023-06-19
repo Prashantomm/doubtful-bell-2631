@@ -19,7 +19,7 @@ public static void BookBookingcName(Customer customer) {
 		
 		CustomerDao dao = new CustomerDaoImpl();
 		try {
-			System.out.println(ConsoleColors.ORANGE + "Enter no. of Bookings to Book" + ConsoleColors.RESET);
+			System.out.println(ConsoleColors.ORANGE + "Enter no. of cars to Book" + ConsoleColors.RESET);
 			int no = sc.nextInt();
 			
 			int cusId = customer.getCusId();
