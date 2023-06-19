@@ -15,36 +15,34 @@ public static void AddCar() {
 		try {
 			
 			System.out.println(ConsoleColors.ORANGE + "Enter Car Model" + ConsoleColors.RESET);
-			int busNo = sc.nextInt();
+			int carMo = sc.nextInt();
 			
 			System.out.println(ConsoleColors.ORANGE + "Enter Car name" + ConsoleColors.RESET);
-			String bName = sc.next();
+			String cName = sc.next();
 			
-			
-			
-			
-			System.out.println(ConsoleColors.ORANGE + "Enter Car Type - AC / NonAC" + ConsoleColors.RESET);
-			String bType = sc.next();
+		
+			System.out.println(ConsoleColors.ORANGE + "Enter Car Type - SUV / Sedan / Minivan" + ConsoleColors.RESET);
+			String cType = sc.next();
 			
 			sc.nextLine();
-//			System.out.println(ConsoleColors.ORANGE + "Enter Departure date and time in format (YYYY-MM-DD HH:MI:SS)" + ConsoleColors.RESET);
-//			String departure = sc.nextLine();
+			System.out.println(ConsoleColors.ORANGE + "Enter Car aviliability date and time in format (YYYY-MM-DD HH:MI:SS)" + ConsoleColors.RESET);
+			String availiableTo = sc.nextLine();
 			
-//			System.out.println(ConsoleColors.ORANGE + "Enter Arrival date and time in format (YYYY-MM-DD HH:MI:SS)" + ConsoleColors.RESET);
-//			String arrival = sc.nextLine();
+			System.out.println(ConsoleColors.ORANGE + "Enter Car ToTill date and time in format (YYYY-MM-DD HH:MI:SS)" + ConsoleColors.RESET);
+			String tillDate = sc.nextLine();
 			
-			System.out.println(ConsoleColors.ORANGE + "Enter Total Seats" + ConsoleColors.RESET);
-			int totalSeats = sc.nextInt();
+			System.out.println(ConsoleColors.ORANGE + "Enter Total Car" + ConsoleColors.RESET);
+			int totalCars = sc.nextInt();
 			
-			System.out.println(ConsoleColors.ORANGE + "Enter Available Seats" + ConsoleColors.RESET);
-			int availSeats = sc.nextInt();
+			System.out.println(ConsoleColors.ORANGE + "Enter Available Car" + ConsoleColors.RESET);
+			int availCars = sc.nextInt();
 			
 			System.out.println(ConsoleColors.ORANGE + "Enter fare" + ConsoleColors.RESET);
 			int fare = sc.nextInt();
 			
 			AdminDao dao = new AdminDaoImpl();
 			
-			String result = dao.addCar(carMo, cName, cType,  totalSeats, availSeats, fare);
+			String result = dao.addCar(carMo, cName, cType, availiableTo,tillDate, totalCars, availCars, fare);
 			
 			if (result.equals("Car added Successfully")) {
 				System.out.println(ConsoleColors.GREEN_BACKGROUND + result + ConsoleColors.RESET);

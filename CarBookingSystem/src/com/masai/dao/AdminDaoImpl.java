@@ -23,27 +23,29 @@ public class AdminDaoImpl implements AdminDao{
 	}
 
 	@Override
-	public String addCar(int carMo, String cName,  String cType,
-			int totalSeats, int availSeats, int fare) {
+	public String addCar(int carMo, String cName,  String cType,String tillDate,String availiableTo,
+			int totalCars, int availCars, int fare) {
 		
-		String message = "Bus not Added";
+		String message = "car not Added";
 		
 		try (Connection conn = DButil.provideConnection()){
-			PreparedStatement ps = conn.prepareStatement("insert into bus values (?,?,?,?,?,?,)");
+			PreparedStatement ps = conn.prepareStatement("insert into car values (?,?,?,?,?,?,?,?)");
 			
 			ps.setInt(1, carMo);
 			ps.setString(2, cName);
 			
 			
 			ps.setString(3, cType);
+			ps.setString(4, availiableTo);
+			ps.setString(5, tillDate);
 			
-			ps.setInt(4,totalSeats);
-			ps.setInt(5, availSeats);
-			ps.setInt(6, fare);
+			ps.setInt(6,totalCars);
+			ps.setInt(7, availCars);
+			ps.setInt(8, fare);
 			
 			int x = ps.executeUpdate();
 			
-			if (x > 0) message = "Bus added Successfully";
+			if (x > 0) message = "Car added Successfully";
 			
 		}
 		catch (SQLException e) {
@@ -55,17 +57,19 @@ public class AdminDaoImpl implements AdminDao{
 
 	@Override
 	public String addCar(Car car) {
-		String message = "Bus not Added";
+		String message = "Car not Added";
 		
 		try (Connection conn = DButil.provideConnection()){
-			PreparedStatement ps = conn.prepareStatement("insert into bus values (?,?,?,?,?,?,?,?,?,?)");
+			PreparedStatement ps = conn.prepareStatement("insert into car values (?,?,?,?,?,?,?,?)");
 			
 			ps.setInt(1, car.getCarMo());
 			ps.setString(2, car.getcName());
 			ps.setString(3, car.getcType());
-			ps.setInt(4,car.getTotalSeats());
-			ps.setInt(5, car.getAvailSeats());
-			ps.setInt(6, car.getFare());
+			ps.setString(4, car.getAvailiableTo());
+			ps.setString(5, car.getTillDate());
+			ps.setInt(6,car.getTotalCars());
+			ps.setInt(7, car.getAvailCars());
+			ps.setInt(8, car.getFare());
 			
 			int x = ps.executeUpdate();
 			
@@ -112,7 +116,7 @@ public class AdminDaoImpl implements AdminDao{
 				System.out.println(ConsoleColors.ROSY_PINK + "----------------------------------------------------" + ConsoleColors.RESET);
 				System.out.println(ConsoleColors.ROSY_PINK + "Bus Id : " + rs1.getInt("cId") + ConsoleColors.RESET);
 				System.out.println(ConsoleColors.ROSY_PINK + "Bus No : " + rs1.getInt("carMo") + ConsoleColors.RESET);
-				System.out.println(ConsoleColors.ROSY_PINK + "Total bookings : " + (rs1.getInt("seatTo") - rs1.getInt("seatFrom") + 1) + ConsoleColors.RESET);
+				System.out.println(ConsoleColors.ROSY_PINK + "Total Car bookings : " + (rs1.getInt("carTo") - rs1.getInt("carFrom") + 1) + ConsoleColors.RESET);
 				if (rs1.getInt("status") == 1) System.out.println(ConsoleColors.ROSY_PINK + "Status : Booked" + ConsoleColors.RESET);
 				else System.out.println(ConsoleColors.ROSY_PINK + "Status : Pending" + ConsoleColors.RESET);
 				
@@ -124,6 +128,8 @@ public class AdminDaoImpl implements AdminDao{
 		catch (SQLException s){
 			System.out.println(ConsoleColors.RED_BACKGROUND + s.getMessage() + ConsoleColors.RESET);
 		}
+		
+		
 		
 	}
 

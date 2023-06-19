@@ -14,7 +14,7 @@ public class CancelBookingcNameusecase {
 		Scanner sc = new Scanner(System.in);
 		
 		System.out.println(ConsoleColors.ORANGE + "Enter Car Name" + ConsoleColors.RESET);
-		String bName = sc.nextLine();
+		String cName = sc.nextLine();
 		
 		CustomerDao dao = new CustomerDaoImpl();
 		try {
@@ -22,7 +22,7 @@ public class CancelBookingcNameusecase {
 			int cusId = customer.getCusId();
 			String message = dao.cancelBooking(cName, cusId);
 			
-			if (message.equals("Ticket cancelled Successfully")) {
+			if (message.equals("Booking cancelled Successfully")) {
 				System.out.println(ConsoleColors.GREEN_BACKGROUND + message + ConsoleColors.RESET);
 			}
 			else {

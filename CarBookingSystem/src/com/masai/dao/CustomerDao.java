@@ -17,6 +17,6 @@ public String cusSignUp (String username, String password, String firstName, Str
 	
 	public void viewBooking(int cusId);
 
-	String cancelBookig(String cName, int cusId) throws CarException;
+	
 
 }
