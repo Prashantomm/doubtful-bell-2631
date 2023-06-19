@@ -42,8 +42,8 @@
 # Overview of my work
 ## *ER Diagram* 
 
+<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/f315f134-021e-4a82-8ff7-28bfe9f2134e" width="300" height="300">
 
-![er diagram](https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/f315f134-021e-4a82-8ff7-28bfe9f2134e)
 
 ## *Admin Login* 
 Admin can login by using username (admin) and password (admin)
