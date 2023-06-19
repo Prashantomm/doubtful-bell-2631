@@ -46,7 +46,8 @@
 # Overview of my work
 ## *ER Diagram* 
 
-![ERdiagram](https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/eefdca7a-39fb-4800-8d1a-99057b930401)
+
+![er diagram](https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/f315f134-021e-4a82-8ff7-28bfe9f2134e)
 
 ## *Admin Login* 
 Admin can login by using username (Admin) and password (1234)
