@@ -1,6 +1,6 @@
 # doubtful-bell-2631
 
-<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/e25594d6-e0aa-459a-8a98-d6d4ab491906" width="200" height="200">
+<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/e25594d6-e0aa-459a-8a98-d6d4ab491906" width="300" height="300">
  
 
 
@@ -46,9 +46,9 @@
 ![er diagram](https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/f315f134-021e-4a82-8ff7-28bfe9f2134e)
 
 ## *Admin Login* 
-Admin can login by using username (Admin) and password (admin)
+Admin can login by using username (admin) and password (admin)
 </br>
-<img src="https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/deb30969-87e6-4463-b533-bec918d97c53" width="400" height="400">
+<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/b5612703-0711-4d83-b4b2-3e1c52660d4c" width="400" height="400">
 
 
 
@@ -57,17 +57,14 @@ Customer can signup first if not registered earlier
 </br>
 Customer can login with earlier provided username and password
 </br>
-<img src="https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/22368990-9629-465c-a434-1d0991c11d0c" width="400" height="400">
+<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/74fe5802-6109-491b-ad61-e12f9031d457" width="400" height="400">
+
 
 
 ## *Backend Functionality* 
 User can go back to the previous option
 </br>
-<img src="https://github.com/Prashantomm/plucky-scent-2586/assets/112774297/a4cad5be-ba45-473e-9f8f-20b00d0cdafa" width="400" height="400">
-
-
-
-
+<img src="https://github.com/Prashantomm/doubtful-bell-2631/assets/112774297/6a071cf7-b035-4585-ac8b-1d82911d42f0" width="400" height="400">
 
 
 # Feedback
